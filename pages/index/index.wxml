@@ -1,0 +1,32 @@
+<!--pages/aipintuan/index.wxml-->
+<!-- 搜索框开始 -->
+<search-input title="搜索" />
+<!-- 搜索框结束 -->
+<!-- 轮播图开始 -->
+<view class="swiperBox">
+	<swiper indicator-dots="true" indicator-color="black" indicator-active-color="white" circular="true" interval="3000" autoplay="true">
+		<swiper-item wx:for="{{swiper_list}}" wx:key="goods_id">
+			<image src="{{item.image_src}}"></image>
+		</swiper-item>
+	</swiper>
+</view>
+<!-- 轮播图结束 -->
+<!-- 导航开始 -->
+<view class="navBox">
+	<block wx:for="{{navItems}}" wx:key="index">
+		<image src="{{item.image_src}}"></image>
+	</block>
+</view>
+<!-- 导航结束 -->
+<!-- 商品开始 -->
+<view class="shopBox">
+	<block wx:for="{{floorData}}" wx:key="*this">
+		<view class="shopTitle">{{item.floor_title.name}}</view>
+		<view class="shopPic">
+			<block wx:for="{{item.product_list}}">
+				<image src="{{item.image_src}}"></image>
+			</block>
+		</view>
+	</block>
+</view>
+<!-- 商品结束 -->
